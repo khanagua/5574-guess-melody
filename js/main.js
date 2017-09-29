@@ -19,8 +19,8 @@ const openScreen = (numberScreen) => {
 };
 
   /**
-  * Определить новое положение пина и прописать его координаты в поле адрес
-  * @param {Event} moveEvt объект события
+  * Отследить нажатие клавиши Alt и стрелок управления
+  * @param {Event} evt объект события
   */
 const changeScreen = (evt) => {
   if ((evt.keyCode === keysCode.ARROW_LEFT) && (evt.altKey)) {

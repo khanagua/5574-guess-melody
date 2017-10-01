@@ -1,7 +1,7 @@
 const app = document.querySelector(`div`);
 const templates = document.getElementById(`templates`);
 const screens = templates.content.children;
-const firstScreen = 0;
+const FIRST_SCREEN = 0;
 const lastScreen = screens.length - 1;
 let currentScreen = 0;
 
@@ -23,24 +23,26 @@ const openScreen = (numberScreen) => {
   * @param {Event} evt объект события
   */
 const changeScreen = (evt) => {
-  if ((evt.keyCode === keysCode.ARROW_LEFT) && (evt.altKey)) {
-    if (currentScreen === firstScreen) {
+  const altAndLeft = (evt.keyCode === keysCode.ARROW_LEFT) && evt.altKey;
+  const altAndRight = (evt.keyCode === keysCode.ARROW_RIGHT) && evt.altKey;
+  if (altAndLeft) {
+    if (currentScreen === FIRST_SCREEN) {
       currentScreen = lastScreen;
       openScreen(lastScreen);
     } else {
       openScreen(--currentScreen);
     }
-  } else if ((evt.keyCode === keysCode.ARROW_RIGHT) && (evt.altKey)) {
+  } else if (altAndRight) {
     if (currentScreen < lastScreen) {
       openScreen(++currentScreen);
     } else {
-      currentScreen = firstScreen;
+      currentScreen = FIRST_SCREEN;
       openScreen(currentScreen);
     }
   }
 };
 
-document.addEventListener(`keydown`, function (evt) {
+document.addEventListener(`keydown`, (evt) => {
   changeScreen(evt);
 });
 

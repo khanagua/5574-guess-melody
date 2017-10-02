@@ -26,24 +26,14 @@ const changeScreen = (evt) => {
   const altAndLeft = (evt.keyCode === keysCode.ARROW_LEFT) && evt.altKey;
   const altAndRight = (evt.keyCode === keysCode.ARROW_RIGHT) && evt.altKey;
   if (altAndLeft) {
-    if (currentScreen === FIRST_SCREEN) {
-      currentScreen = lastScreen;
-      openScreen(lastScreen);
-    } else {
-      openScreen(--currentScreen);
-    }
+    currentScreen = (currentScreen === FIRST_SCREEN) ? lastScreen : --currentScreen;
+    openScreen(currentScreen);
   } else if (altAndRight) {
-    if (currentScreen < lastScreen) {
-      openScreen(++currentScreen);
-    } else {
-      currentScreen = FIRST_SCREEN;
-      openScreen(currentScreen);
-    }
+    currentScreen = (currentScreen < lastScreen) ? ++currentScreen : FIRST_SCREEN;
+    openScreen(currentScreen);
   }
 };
 
-document.addEventListener(`keydown`, (evt) => {
-  changeScreen(evt);
-});
+document.addEventListener(`keydown`, (evt) => changeScreen(evt));
 
 openScreen(currentScreen);

@@ -6,7 +6,7 @@
 const createElement = (string) => {
   let template = document.createElement(`template`);
   template.innerHTML = string;
-  return template.firstChild;
+  return template;
 };
 
 export default createElement;

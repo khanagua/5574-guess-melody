@@ -1,5 +1,5 @@
 import assert from 'assert';
-import getPoints from './getPoints.js';
+import getPoints from './get-points.js';
 
 let playerAnswers;
 

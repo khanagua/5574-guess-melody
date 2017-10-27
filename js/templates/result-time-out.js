@@ -1,7 +1,6 @@
-import createElement from '../createElement.js';
+import createElement from '../create-element.js';
 
-const strResultTimeOut = `  <!-- Результат игры: проигрыш время вышло -->
-  <section class="main main--result">
+const strResultTimeOut = `<section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
     <h2 class="title">Увы и ах!</h2>

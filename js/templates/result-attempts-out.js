@@ -1,7 +1,6 @@
-import createElement from '../createElement.js';
+import createElement from '../create-element.js';
 
-const strResultAttemptsOut = `  <!-- Результат игры: проигрыш закончились попытки -->
-  <section class="main main--result">
+const strResultAttemptsOut = `<section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
     <h2 class="title">Какая жалость!</h2>

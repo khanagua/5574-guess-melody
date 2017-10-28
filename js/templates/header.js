@@ -20,7 +20,7 @@ const getHeaderTemplate = (currentState) => {
      </div>
     </svg>
     <div class="main-mistakes">
-      ${new Array(3 - currentState.mistakes).fill(`<img class="main-mistake" src="img/wrong-answer.png" width="35" height="49">`).join(``)}
+      ${new Array(currentState.mistakes).fill(`<img class="main-mistake" src="img/wrong-answer.png" width="35" height="49">`).join(``)}
       </div>
   </section>`;
 };

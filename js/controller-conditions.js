@@ -17,7 +17,7 @@ const controllerConditions = (state) => {
     state.resetDefault();
     return;
   }
-  if (state.mistakes === PlaySettings.COUNT_MISTAKES) { // Закончились жизни
+  if (state.mistakes === PlaySettings.COUNT_MISTAKES + 1) { // Закончились жизни
     openScreen(screenResultAttemptsOut);
     state.resetDefault();
     return;

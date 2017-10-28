@@ -1,8 +1,17 @@
 const PlaySettings = {
   GAME_TIME: 300,
   ANSWER_TIME: 30,
+  MIN_TIME: 0,
   COUNT_MISTAKES: 3,
   COUNT_ANSWERS: 10,
+  MIN_COUNT_NOTES: 0,
+  MARK_LOSS: -1,
+};
+
+const PointsForAnswer = {
+  FOR_QUICK: 2,
+  FOR_CORRECT: 1,
+  FOR_INCORRECT: 2,
 };
 
 const initialState = {
@@ -32,5 +41,6 @@ const currentPlayer = {
 };
 
 const testResultsPlayers = [0, 7, 10, 12, 13, 14, 20];
+const testTimePlayer = 35;
 
-export {PlaySettings, initialState, currentPlayer, testResultsPlayers};
+export {PlaySettings, PointsForAnswer, initialState, currentPlayer, testResultsPlayers, testTimePlayer};

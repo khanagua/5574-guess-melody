@@ -1,4 +1,4 @@
-import {currentPlayer} from '../data/game-settings.js';
+import {currentPlayer, testTimePlayer} from '../data/game-settings.js';
 
 /**
  * Проверить корректность ответов и записать их
@@ -15,7 +15,7 @@ const checkAnswer = (currentState, currentQuestion, currentAnswer) => {
   const addAnswer = (isAnswer) => {
     currentPlayer.answers.push({
       correctly: isAnswer,
-      time: 35
+      time: testTimePlayer,
     });
   };
 

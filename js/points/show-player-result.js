@@ -14,6 +14,7 @@ const PHRASE = {
  * @param {object} currentPlayer объект результата с кол-вом набранных баллов, кол-вом оставшихся нот и кол-вом оставшегося времени
  * @return {string}
  */
+
 const showPlayerResult = (resultAllPlayer, currentPlayer) => {
   if (currentPlayer.remainingTime === PlaySettings.MIN_TIME) {
     return PHRASE.failTime;

@@ -3,9 +3,9 @@ const PlaySettings = {
   ANSWER_TIME: 30,
   MIN_TIME: 0,
   COUNT_MISTAKES: 3,
+  MARK_LOSS: -1,
   COUNT_ANSWERS: 10,
   MIN_COUNT_NOTES: 0,
-  MARK_LOSS: -1,
 };
 
 const PointsForAnswer = {
@@ -44,3 +44,4 @@ const testResultsPlayers = [0, 7, 10, 12, 13, 14, 20];
 const testTimePlayer = 35;
 
 export {PlaySettings, PointsForAnswer, initialState, currentPlayer, testResultsPlayers, testTimePlayer};
+

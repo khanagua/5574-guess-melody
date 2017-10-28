@@ -1,3 +1,5 @@
+import {PlaySettings} from '../data/game-settings.js';
+
 const PHRASE = {
   failTime: `Время вышло! Вы не успели отгадать все мелодии`,
   failNotes: `У вас закончились все попытки. Ничего, повезёт в следующий раз!`,
@@ -13,10 +15,10 @@ const PHRASE = {
  * @return {string}
  */
 const showPlayerResult = (resultAllPlayer, playerResult) => {
-  if (playerResult.remainingTime === 0) {
+  if (playerResult.remainingTime === PlaySettings.MIN_TIME) {
     return PHRASE.failTime;
   }
-  if (playerResult.remainingNotes === -1) {
+  if (playerResult.remainingNotes < PlaySettings.MIN_COUNT_NOTES) {
     return PHRASE.failNotes;
   }
   const playersStatistics = resultAllPlayer.slice();

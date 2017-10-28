@@ -1,3 +1,5 @@
+import {PlaySettings, PointsForAnswer} from '../data/game-settings.js';
+
 /**
  * Подсчитываем количество очков по итогам игры
  * @param {array} playerAnswers массив с корректностью ответа и затраченным временем текущего игрока
@@ -5,17 +7,17 @@
  * @return {number}
  */
 const getPoints = (playerAnswers, remainingNotes) => {
-  if (playerAnswers.length < 10 || remainingNotes < 0) {
+  if (playerAnswers.length < PlaySettings.COUNT_ANSWERS || remainingNotes < PlaySettings.MIN_COUNT_NOTES) {
     return -1;
   }
   return playerAnswers.reduce((resultPoints, answer) => {
     if (!answer.correctly) {
-      return resultPoints - 2; // отсеем неверные ответы
+      return resultPoints - PointsForAnswer.FOR_INCORRECT; // отсеем неверные ответы
     }
-    if (answer.time <= 30) { // выделим быстрые ответы среди верных
-      return resultPoints + 2;
+    if (answer.time <= PlaySettings.ANSWER_TIME) { // выделим быстрые ответы среди верных
+      return resultPoints + PointsForAnswer.FOR_QUICK;
     }
-    return resultPoints + 1;
+    return resultPoints + PointsForAnswer.FOR_CORRECT;
   }, 0);
 };
 

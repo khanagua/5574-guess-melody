@@ -1,5 +1,5 @@
 import {PlaySettings, currentPlayer, testResultsPlayers} from './data/game-settings.js';
-import openScreen from './change-screen.js';
+import openScreen from './open-screen.js';
 import screenResultTimeOut from './templates/result-time-out.js';
 import screenResultAttemptsOut from './templates/result-attempts-out.js';
 import choiceQuestion from './utils/choice-question.js';

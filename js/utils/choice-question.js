@@ -1,6 +1,6 @@
 import arrQuestions from '../data/questions.js';
-import openScreen from '../change-screen.js';
-import getScreenLevelArtist from '../templates/level-artist.js';
+import openScreen from '../open-screen.js';
+import getScreenLevelArtist from '../templates/level-artist/level-artist.js';
 import getScreenLevelGenre from '../templates/level-genre.js';
 
 /**

@@ -2,11 +2,12 @@ const app = document.getElementsByClassName(`main`)[0];
 
 /**
  * Вывести на экран полученный шаблон экрана
- * @param {DOM-object} screen шаблон экрана
+ * @param {class} view шаблон экрана
  */
-const openScreen = (screen) => {
+const openScreen = (view) => {
   app.innerHTML = ``;
-  app.appendChild(screen.content);
+  // app.appendChild(view.element);
+  app.appendChild(view._element.content);
 };
 
 export default openScreen;

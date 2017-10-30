@@ -8,7 +8,7 @@ import {PlaySettings, PointsForAnswer} from '../data/game-settings.js';
  */
 const getPoints = (playerAnswers, remainingNotes) => {
   if (playerAnswers.length < PlaySettings.COUNT_ANSWERS || remainingNotes < PlaySettings.MIN_COUNT_NOTES) {
-    return -1;
+    return PlaySettings.MARK_LOSS;
   }
   return playerAnswers.reduce((resultPoints, answer) => {
     if (!answer.correctly) {

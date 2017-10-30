@@ -11,22 +11,23 @@ const PHRASE = {
 /**
  * Подсчитываем количество очков у тех, кто ответил на все вопросы
  * @param {array} resultAllPlayer массив результатов игр других игроков
- * @param {object} playerResult объект результата с кол-вом набранных баллов, кол-вом оставшихся нот и кол-вом оставшегося времени
+ * @param {object} currentPlayer объект результата с кол-вом набранных баллов, кол-вом оставшихся нот и кол-вом оставшегося времени
  * @return {string}
  */
-const showPlayerResult = (resultAllPlayer, playerResult) => {
-  if (playerResult.remainingTime === PlaySettings.MIN_TIME) {
+
+const showPlayerResult = (resultAllPlayer, currentPlayer) => {
+  if (currentPlayer.remainingTime === PlaySettings.MIN_TIME) {
     return PHRASE.failTime;
   }
-  if (playerResult.remainingNotes < PlaySettings.MIN_COUNT_NOTES) {
+  if (currentPlayer.remainingNotes < PlaySettings.MIN_COUNT_NOTES) {
     return PHRASE.failNotes;
   }
   const playersStatistics = resultAllPlayer.slice();
-  playersStatistics.push(playerResult.points);
+  playersStatistics.push(currentPlayer.score);
   playersStatistics.sort((a, b) => {
     return b - a;
   });
-  const placePlayer = playersStatistics.indexOf(playerResult.points) + 1;
+  const placePlayer = playersStatistics.indexOf(currentPlayer.score) + 1;
   const amountPlayers = playersStatistics.length;
   const percent = (amountPlayers - placePlayer) / amountPlayers * 100;
   const roundPercent = Math.round(percent);

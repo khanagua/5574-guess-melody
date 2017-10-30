@@ -1,4 +1,5 @@
 import createElement from '../create-element.js';
+import getCopyright from './copyright.js';
 
 /**
  * Получить строку фразу-шаблон со статистикой
@@ -27,7 +28,7 @@ const srtResult = (resultPhrase, currentPlayer, state) => {
     <h2 class="title">Вы настоящий меломан!</h2>
     ${getTemplateStat(resultPhrase, currentPlayer, state)};
     <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
-  </section>`;
+  </section>${getCopyright()}`;
 };
 
 /**

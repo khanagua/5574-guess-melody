@@ -2,6 +2,7 @@ import createElement from '../create-element.js';
 import controllerConditions from '../controller-conditions.js';
 import checkAnswer from '../points/check-answer.js';
 import getHeaderTemplate from './header.js';
+import getCopyright from './copyright.js';
 
 /**
  * Получить строку шаблона заголовка экрана
@@ -50,7 +51,7 @@ const strLevelGenre = (currentQuestion, currentState)=> {
         <button class="genre-answer-send" type="submit">Ответить</button>
       </form>
     </div>
-  </section>`;
+  </section>${getCopyright()}`;
 };
 
 /**

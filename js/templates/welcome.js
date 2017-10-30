@@ -1,5 +1,6 @@
 import createElement from '../create-element.js';
 import controllerConditions from '../controller-conditions.js';
+import getCopyright from './copyright.js';
 
 const strWelcome = `<section class="main main--welcome">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
@@ -10,7 +11,7 @@ const strWelcome = `<section class="main main--welcome">
       Ошибиться можно 3 раза.<br>
       Удачи!
     </p>
-  </section>`;
+  </section>${getCopyright()}`;
 
 /**
  * Получить приветственный экран

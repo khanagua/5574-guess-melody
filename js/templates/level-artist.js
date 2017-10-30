@@ -2,6 +2,7 @@ import createElement from '../create-element.js';
 import controllerConditions from '../controller-conditions.js';
 import checkAnswer from '../points/check-answer.js';
 import getHeaderTemplate from './header.js';
+import getCopyright from './copyright.js';
 
 /**
  * Получить строку шаблона заголовка экрана
@@ -61,7 +62,7 @@ const srtLevelArtist = (currentQuestion, currentState) => {
         ${currentQuestion.optionAnswer.reduce((answers, answer, answerIndex) => answers + getTemplateAnswer(answerIndex + 1, answer.artist, answer.image), ``)}
       </form>
     </div>
-  </section>`;
+  </section>${getCopyright()}`;
 };
 
 /**

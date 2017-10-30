@@ -12,7 +12,7 @@ import getScreenResult from './templates/result.js';
  * @param {object} state начальные настройки игры
  */
 const controllerConditions = (state) => {
-  if (state.time === 0) { // Закончилось общее время игры
+  if (!state.time) { // Закончилось общее время игры
     openScreen(screenResultTimeOut);
     state.resetDefault();
     return;

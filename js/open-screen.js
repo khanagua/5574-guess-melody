@@ -1,4 +1,4 @@
-const app = document.getElementsByClassName(`main`)[0];
+const app = document.querySelector(`.app`);
 
 /**
  * Вывести на экран полученный шаблон экрана

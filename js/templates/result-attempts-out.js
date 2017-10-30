@@ -1,4 +1,5 @@
 import createElement from '../create-element.js';
+import getCopyright from './copyright.js';
 
 const strResultAttemptsOut = `<section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
@@ -6,7 +7,7 @@ const strResultAttemptsOut = `<section class="main main--result">
     <h2 class="title">Какая жалость!</h2>
     <div class="main-stat">У вас закончились все попытки.<br>Ничего, повезёт в следующий раз!</div>
     <span role="button" tabindex="0" class="main-replay">Попробовать ещё раз</span>
-  </section>`;
+  </section>${getCopyright()}`;
 
 const screenResultAttemptsOut = createElement(strResultAttemptsOut);
 const btnMainReplay = screenResultAttemptsOut.content.querySelector(`.main-replay`);

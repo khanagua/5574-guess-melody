@@ -45,7 +45,7 @@ const getTemplateAnswer = (answerNumber, artistName, artistImage) => {
 };
 
 export default class LevelArtistView extends AbstractView {
-  constructor(currentQuestion, currentState) {
+  constructor(currentState, currentQuestion) {
     super();
     this.currentQuestion = currentQuestion;
     this.currentState = currentState;
@@ -65,7 +65,7 @@ export default class LevelArtistView extends AbstractView {
   }
 
   bind() {
-    const btnMainAnswer = this.element.content.querySelector(`.main-list`);
+    const btnMainAnswer = this.element.querySelector(`.main-list`);
     btnMainAnswer.addEventListener(`click`, (evt) => {
       if (evt.target.closest(`.js-main-answer-r`)) {
         this.onStart(evt);

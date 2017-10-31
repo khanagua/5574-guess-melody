@@ -4,7 +4,7 @@
  * @return {DOM-object}
  */
 const createElement = (string) => {
-  let template = document.createElement(`template`);
+  let template = document.createElement(`div`);
   template.innerHTML = string;
   return template;
 };

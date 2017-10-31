@@ -10,7 +10,7 @@ const strResultAttemptsOut = `<section class="main main--result">
   </section>${getCopyright()}`;
 
 const screenResultAttemptsOut = createElement(strResultAttemptsOut);
-const btnMainReplay = screenResultAttemptsOut.content.querySelector(`.main-replay`);
+const btnMainReplay = screenResultAttemptsOut.querySelector(`.main-replay`);
 
 /**
 * Отследить нажатие на ссылку возврата к началу игры

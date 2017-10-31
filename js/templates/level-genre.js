@@ -62,8 +62,8 @@ const strLevelGenre = (currentQuestion, currentState)=> {
  */
 const getScreenLevelGenre = (currentState, currentQuestion) => {
   const screenLevelGenre = createElement(strLevelGenre(currentQuestion, currentState));
-  const btnAnswerSend = screenLevelGenre.content.querySelector(`.genre-answer-send`);
-  const formGenre = screenLevelGenre.content.querySelector(`.genre`);
+  const btnAnswerSend = screenLevelGenre.querySelector(`.genre-answer-send`);
+  const formGenre = screenLevelGenre.querySelector(`.genre`);
   btnAnswerSend.setAttribute(`disabled`, `disabled`);
 
   /**

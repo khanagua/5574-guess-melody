@@ -40,7 +40,7 @@ const srtResult = (resultPhrase, currentPlayer, state) => {
  */
 const getScreenResult = (resultPhrase, currentPlayer, state) => {
   const screenResult = createElement(srtResult(resultPhrase, currentPlayer, state));
-  const btnMainReplay = screenResult.content.querySelector(`.main-replay`);
+  const btnMainReplay = screenResult.querySelector(`.main-replay`);
 
   /**
    * Отследить нажатие на ссылку возврата к началу игры

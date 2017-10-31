@@ -6,8 +6,7 @@ const app = document.querySelector(`.app`);
  */
 const openScreen = (view) => {
   app.innerHTML = ``;
-  // app.appendChild(view.element);
-  app.appendChild(view._element.content);
+  app.appendChild(view.element);
 };
 
 export default openScreen;

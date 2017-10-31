@@ -10,7 +10,7 @@ const strResultTimeOut = `<section class="main main--result">
   </section>${getCopyright()}`;
 
 const screenResultTimeOut = createElement(strResultTimeOut);
-const btnMainReplay = screenResultTimeOut.content.querySelector(`.main-replay`);
+const btnMainReplay = screenResultTimeOut.querySelector(`.main-replay`);
 
 /**
 * Отследить нажатие на ссылку возврата к началу игры

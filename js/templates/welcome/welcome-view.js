@@ -1,4 +1,5 @@
 import AbstractView from '../abstract-view.js';
+import getCopyright from '../copyright.js';
 
 export default class WelcomeView extends AbstractView {
   constructor() {
@@ -16,7 +17,7 @@ export default class WelcomeView extends AbstractView {
         Ошибиться можно 3 раза.<br>
         Удачи!
       </p>
-     </section>`.trim();
+     </section>${getCopyright()}`.trim();
   }
 
   bind() {

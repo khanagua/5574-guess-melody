@@ -15,7 +15,6 @@ const getScreenWelcome = (state) => {
   screenWelcome.onStart = () => {
     controllerConditions(state);
   };
-
   return screenWelcome;
 };
 

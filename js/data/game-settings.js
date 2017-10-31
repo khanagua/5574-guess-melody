@@ -15,13 +15,15 @@ const PointsForAnswer = {
 };
 
 const initialState = {
-  time: 299,
+  time: 155,
   mistakes: 0,
   level: 0,
+  tagOfLoss: ``,
   resetDefault() {
     this.time = PlaySettings.GAME_TIME;
     this.mistakes = 0;
     this.level = 0;
+    this.tagOfLoss = ``;
   }
 };
 

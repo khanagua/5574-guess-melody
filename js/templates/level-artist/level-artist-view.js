@@ -1,5 +1,6 @@
 import AbstractView from '../abstract-view.js';
 import getHeaderTemplate from '../header.js';
+import getCopyright from '../copyright.js';
 
 /**
  * Получить строку шаблона заголовка экрана
@@ -61,7 +62,7 @@ export default class LevelArtistView extends AbstractView {
         ${this.currentQuestion.optionAnswer.reduce((answers, answer, answerIndex) => answers + getTemplateAnswer(answerIndex + 1, answer.artist, answer.image), ``)}
       </form>
     </div>
-  </section>`.trim();
+  </section>${getCopyright()}`.trim();
   }
 
   bind() {

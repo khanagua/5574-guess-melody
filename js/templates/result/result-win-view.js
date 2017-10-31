@@ -1,5 +1,5 @@
-import createElement from '../create-element.js';
-import getCopyright from './copyright.js';
+import AbstractView from '../abstract-view.js';
+import getCopyright from '../copyright.js';
 
 /**
  * Получить строку фразу-шаблон со статистикой
@@ -22,36 +22,28 @@ const getTemplateStat = (resultPhrase, currentPlayer, state) => {
  * @param {object} state текущие настройки игры
  * @return {string}
  */
-const srtResult = (resultPhrase, currentPlayer, state) => {
-  return `<section class="main main--result">
+
+export default class ResultWin extends AbstractView {
+  constructor(resultPhrase, currentPlayer, state) {
+    super();
+    this.resultPhrase = resultPhrase;
+    this.currentPlayer = currentPlayer;
+    this.state = state;
+  }
+  get template() {
+    return `<section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
     <h2 class="title">Вы настоящий меломан!</h2>
-    ${getTemplateStat(resultPhrase, currentPlayer, state)};
+    ${getTemplateStat(this.resultPhrase, this.currentPlayer, this.state)};
     <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
-  </section>${getCopyright()}`;
-};
+    </section>${getCopyright()}`.trim();
+  }
 
-/**
- * Получить шаблон экрана результата
- * @param {string} resultPhrase текущие настройки игры
- * @param {object} currentPlayer текущий вопрос
- * @param {object} state текущие настройки игры
- * @return {DOM-object}
- */
-const getScreenResult = (resultPhrase, currentPlayer, state) => {
-  const screenResult = createElement(srtResult(resultPhrase, currentPlayer, state));
-  const btnMainReplay = screenResult.querySelector(`.main-replay`);
+  bind() {
+    const btnMainReplay = this.element.querySelector(`.main-replay`);
+    btnMainReplay.addEventListener(`click`, this.onReload);
+  }
 
-  /**
-   * Отследить нажатие на ссылку возврата к началу игры
-   * @param {Event} evt объект события
-   */
-  btnMainReplay.addEventListener(`click`, (evt) => {
-    evt.preventDefault();
-    document.location.reload(true);
-  });
+  onReload() {}
+}
 
-  return screenResult;
-};
-
-export default getScreenResult;

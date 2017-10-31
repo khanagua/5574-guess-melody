@@ -68,10 +68,10 @@ export default class LevelArtistView extends AbstractView {
     const btnMainAnswer = this.element.querySelector(`.main-list`);
     btnMainAnswer.addEventListener(`click`, (evt) => {
       if (evt.target.closest(`.js-main-answer-r`)) {
-        this.onStart(evt);
+        this.onSendAnswer(evt);
       }
     });
   }
 
-  onStart() {}
+  onSendAnswer() {}
 }

@@ -16,7 +16,7 @@ const getScreenLevelArtist = (currentState, currentQuestion) => {
    * Отследить нажатие на инпут
    * @param {Event} evt объект события
    */
-  screenLevelArtist.onStart = (evt) => {
+  screenLevelArtist.onSendAnswer = (evt) => {
     const currentAnswer = evt.target.closest(`.js-main-answer-r`).value;
     checkAnswer(currentState, currentQuestion, currentAnswer);
     controllerConditions(currentState);

@@ -1,7 +1,7 @@
 import arrQuestions from '../data/questions.js';
 import openScreen from '../open-screen.js';
 import getScreenLevelArtist from '../templates/level-artist/level-artist.js';
-import getScreenLevelGenre from '../templates/level-genre.js';
+import getScreenLevelGenre from '../templates/level-genre/level-genre.js';
 
 /**
  * Выбрать следующий вопрос

@@ -1,7 +1,7 @@
 import {PlaySettings, currentPlayer, testResultsPlayers} from './data/game-settings.js';
 import openScreen from './open-screen.js';
 import screenResultTimeOut from './templates/result-time-out.js';
-import screenResultAttemptsOut from './templates/result-attempts-out.js';
+import getScreenResaltFail from './templates/resalt/resalt-fail.js';
 import choiceQuestion from './utils/choice-question.js';
 import getPoints from './points/get-points.js';
 import {showPlayerResult} from './points/show-player-result';
@@ -18,7 +18,7 @@ const controllerConditions = (state) => {
     return;
   }
   if (state.mistakes === PlaySettings.COUNT_MISTAKES + 1) { // Закончились жизни
-    openScreen(screenResultAttemptsOut);
+    openScreen(getScreenResaltFail(state));
     state.resetDefault();
     return;
   }

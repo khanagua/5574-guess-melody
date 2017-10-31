@@ -1,6 +1,6 @@
 import AbstractView from '../abstract-view.js';
 import getHeaderTemplate from '../header.js';
-import getCopyright from './copyright.js';
+import getCopyright from '../copyright.js';
 
 /**
  * Получить строку шаблона заголовка экрана
@@ -56,9 +56,23 @@ export default class LevelGenreView extends AbstractView {
   }
 
   bind() {
-    const btnAnswerSend = this.element.querySelector(`.genre-answer-send`);
+    const btnAnswerSend = this._element.querySelector(`.genre-answer-send`);
+    const formGenre = this._element.querySelector(`.genre`);
+    btnAnswerSend.setAttribute(`disabled`, `disabled`);
+    /**
+    * Отследить нажатие на кнопку
+    * @param {Event} evt объект события
+    */
     btnAnswerSend.addEventListener(`click`, (evt) => {
-      this.onSendAnswer(evt);
+      const answersCheckedInputs = Array.from(formGenre.querySelectorAll(`input[name="answer"]:checked`));
+      this.onSendAnswer(evt, answersCheckedInputs);
+    });
+
+    /**
+    * Проверить, есть ли выбранные чекбоксы
+    */
+    formGenre.addEventListener(`click`, () => {
+      btnAnswerSend.disabled = formGenre.querySelectorAll(`input[name="answer"]:checked`).length === 0;
     });
   }
 

@@ -1,5 +1,5 @@
-import controllerConditions from '../controller-conditions.js';
-import checkAnswer from '../points/check-answer.js';
+import controllerConditions from '../../controller-conditions.js';
+import checkAnswer from '../../points/check-answer.js';
 import LevelGenreView from './level-genre-view.js';
 
 /**
@@ -10,29 +10,12 @@ import LevelGenreView from './level-genre-view.js';
  */
 const getScreenLevelGenre = (currentState, currentQuestion) => {
   const screenLevelGenre = new LevelGenreView(currentState, currentQuestion);
-  const formGenre = screenLevelGenre.querySelector(`.genre`);
-  btnAnswerSend.setAttribute(`disabled`, `disabled`);
-
-  /**
-   * Проверить, есть ли выбранные чекбоксы
-   */
-  const validateCheckedInputs = () => {
-    btnAnswerSend.disabled = formGenre.querySelectorAll(`input[name="answer"]:checked`).length === 0;
-  };
-
-  formGenre.addEventListener(`click`, validateCheckedInputs);
-
-  /**
-   * Отследить нажатие на кнопку
-   * @param {Event} evt объект события
-   */
-  btnAnswerSend.addEventListener(`click`, (evt) => {
+  screenLevelGenre.onSendAnswer = (evt, answersCheckedInputs) => {
     evt.preventDefault();
-    const answersCheckedInputs = Array.from(formGenre.querySelectorAll(`input[name="answer"]:checked`));
     const currentAnswer = answersCheckedInputs.map((checkedInput) => checkedInput.value);
     checkAnswer(currentState, currentQuestion, currentAnswer);
     controllerConditions(currentState);
-  });
+  };
   return screenLevelGenre;
 };
 

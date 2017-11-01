@@ -11,10 +11,10 @@ const choiceQuestion = (currentState) => {
   let index = currentState.level;
   let currentQuestion = arrQuestions[index];
   if (currentQuestion.type === `artist`) {
-    openScreen(getScreenLevelArtist(currentState, currentQuestion));
+    openScreen(getScreenLevelArtist(currentState, currentQuestion), currentState);
   }
   if (currentQuestion.type === `genre`) {
-    openScreen(getScreenLevelGenre(currentState, currentQuestion));
+    openScreen(getScreenLevelGenre(currentState, currentQuestion), currentState);
   }
 };
 

@@ -15,7 +15,7 @@ const PointsForAnswer = {
 };
 
 const initialState = {
-  time: 155,
+  time: 300,
   mistakes: 0,
   level: 0,
   tagOfLoss: ``,

@@ -4,9 +4,9 @@
  * @return {DOM-object}
  */
 const createElement = (string) => {
-  let template = document.createElement(`div`);
+  let template = document.createElement(`template`);
   template.innerHTML = string;
-  return template;
+  return template.content.cloneNode(true);
 };
 
 export default createElement;

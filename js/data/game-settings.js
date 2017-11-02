@@ -1,6 +1,7 @@
 const PlaySettings = {
   GAME_TIME: 300,
   ANSWER_TIME: 30,
+  DANGEROUS_TIME: 30,
   MIN_TIME: 0,
   COUNT_MISTAKES: 3,
   MARK_LOSS: -1,
@@ -15,10 +16,11 @@ const PointsForAnswer = {
 };
 
 const initialState = {
-  time: 155,
+  time: 300,
   mistakes: 0,
   level: 0,
   tagOfLoss: ``,
+  elapsedTime: 0,
   resetDefault() {
     this.time = PlaySettings.GAME_TIME;
     this.mistakes = 0;

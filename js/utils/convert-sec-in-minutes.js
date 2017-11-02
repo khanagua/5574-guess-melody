@@ -20,7 +20,7 @@ const convertSecInMinutes = (seconds) => {
   const convertedMinutes = Math.floor(seconds / 60);
   const convertedSeconds = Math.floor(seconds % 60);
   return {
-    min: addZero(convertedMinutes),
+    min: convertedMinutes,
     sec: addZero(convertedSeconds),
   };
 };

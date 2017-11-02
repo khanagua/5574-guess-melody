@@ -1,4 +1,3 @@
-import controllerConditions from '../../controller-conditions.js';
 import ResultFail from './result-fail-view.js';
 
 /**
@@ -14,7 +13,6 @@ const getScreenResultFail = (tagOfLoss, state) => {
    * Показать следующий экран по нажатию на кнопку
    */
   screenResultFail.onReload = () => {
-    controllerConditions(state);
     document.location.reload(true);
   };
 

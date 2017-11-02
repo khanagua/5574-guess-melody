@@ -5,7 +5,6 @@ import choiceQuestion from './utils/choice-question.js';
 import getPoints from './points/get-points.js';
 import {showPlayerResult} from './points/show-player-result';
 import getScreenResult from './templates/result/result-win.js';
-import {getTimer} from './utils/getTimer.js';
 
 /**
  * Проверить условия окончания игры или перехода к следующему вопросу

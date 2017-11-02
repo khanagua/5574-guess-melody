@@ -13,7 +13,7 @@ import tick from '../../utils/getTimer.js';
 const getScreenLevelArtist = (currentState, currentQuestion) => {
   const screenLevelArtist = new LevelArtistView(currentState, currentQuestion);
   const timer = setTimeout(() => {
-    openScreen(getScreenLevelArtist(tick(currentState, currentQuestion)));
+    openScreen(getScreenLevelArtist(tick(currentState, currentQuestion), currentState, currentQuestion));
   }, 1000);
 
   /**

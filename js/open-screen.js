@@ -5,7 +5,7 @@ const app = document.querySelector(`.app`);
  * @param {class} view шаблон экрана
  * @param {class} currentState текущие настройки игры
  */
-const openScreen = (view, currentState) => {
+const openScreen = (view) => {
   app.innerHTML = ``;
   app.appendChild(view.element);
 };

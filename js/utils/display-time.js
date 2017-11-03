@@ -11,9 +11,9 @@ const displayTime = () => {
   let timer = getTimer(initialState.getTime());
   const timeout = () => {
     setTimeout(() => {
-      // const time = convertSecInMinutes(timer.value);
-      // min.innerHTML = time.min;
-      // sec.innerHTML = time.sec;
+      const time = convertSecInMinutes(timer.value);
+      min.innerHTML = time.min;
+      sec.innerHTML = time.sec;
       timer = timer.tick();
       if (timer) {
         timeout();
@@ -27,12 +27,10 @@ const displayTime = () => {
         openScreen(getScreenResultFail(initialState.getProperty().tagOfLoss, initialState.getProperty()));
         initialState.resetDefault();
       }
-      const time = convertSecInMinutes(timer.value);
-      min.innerHTML = time.min;
-      sec.innerHTML = time.sec;
     }, 1000);
   };
   timeout();
+  return timer.value;
 };
 
 export default displayTime;

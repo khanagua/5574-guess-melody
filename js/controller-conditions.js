@@ -13,23 +13,23 @@ import displayTime from './utils/display-time.js';
  * @param {object} state начальные настройки игры
  */
 const controllerConditions = () => {
-  const currentLevel = initialState.getProperty().level;
-  if (initialState.getProperty().mistakes === PlaySettings.COUNT_MISTAKES + 1) { // Закончились жизни
-    initialState.getProperty().tagOfLoss = `AttemptOut`;
-    openScreen(getScreenResultFail(initialState.getProperty().tagOfLoss, initialState.getProperty()));
+  const state = initialState.getProperty();
+  if (state.mistakes === PlaySettings.COUNT_MISTAKES + 1) { // Закончились жизни
+    state.tagOfLoss = `AttemptOut`;
+    openScreen(getScreenResultFail(state.tagOfLoss, state));
     initialState.resetDefault();
     return;
   }
-  if (currentLevel === PlaySettings.COUNT_ANSWERS) { // ответил на все вопросы
+  if (state.level === PlaySettings.COUNT_ANSWERS) { // ответил на все вопросы
     const playerAnswers = currentPlayer.answers;
-    const remainingNotes = currentPlayer.remainingNotes - initialState.getProperty().mistakes;
+    const remainingNotes = currentPlayer.remainingNotes - state.mistakes;
     currentPlayer.score = getPoints(playerAnswers, remainingNotes);
-    const resultPhrase = showPlayerResult(testResultsPlayers, currentPlayer, initialState.getProperty());
+    const resultPhrase = showPlayerResult(testResultsPlayers, currentPlayer, state);
     openScreen(getScreenResult(resultPhrase, currentPlayer));
     return;
   }
-  if (currentLevel < PlaySettings.COUNT_ANSWERS) { // ответил еще не на все вопросы
-    choiceQuestion(initialState.getProperty());
+  if (state.level < PlaySettings.COUNT_ANSWERS) { // ответил еще не на все вопросы
+    choiceQuestion(state);
     displayTime();
     initialState.nextLevel();
   }

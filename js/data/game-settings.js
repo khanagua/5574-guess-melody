@@ -85,9 +85,9 @@ const currentPlayer = {
   answers: [],
   resetToDefault() {
     this.score = 0;
-    this.remainingTime = initialState.getProperty().time;
-    this.spentTime = PlaySettings.GAME_TIME - initialState.getProperty().time;
-    this.remainingNotes = PlaySettings.COUNT_MISTAKES - initialState.getProperty().time;
+    this.remainingTime = this.remainingTime;
+    this.spentTime = PlaySettings.GAME_TIME - this.remainingTime;
+    this.remainingNotes = PlaySettings.COUNT_MISTAKES;
     this.answers = [];
   }
 };

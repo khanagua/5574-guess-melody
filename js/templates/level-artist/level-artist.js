@@ -1,6 +1,7 @@
 import controllerConditions from '../../controller-conditions.js';
 import checkAnswer from '../../points/check-answer.js';
 import LevelArtistView from './level-artist-view.js';
+import {initialState} from '../../data/game-settings.js';
 
 /**
  * Получить шаблон экрана с угадыванием артиста
@@ -8,8 +9,8 @@ import LevelArtistView from './level-artist-view.js';
  * @param {object} currentQuestion текущий вопрос
  * @return {DOM-object}
  */
-const getScreenLevelArtist = (currentState, currentQuestion) => {
-  const screenLevelArtist = new LevelArtistView(currentState, currentQuestion);
+const getScreenLevelArtist = (currentQuestion) => {
+  const screenLevelArtist = new LevelArtistView(initialState.getProperty(), currentQuestion);
 
   /**
    * Отследить нажатие на инпут
@@ -17,8 +18,8 @@ const getScreenLevelArtist = (currentState, currentQuestion) => {
    */
   screenLevelArtist.onSendAnswer = (evt) => {
     const currentAnswer = evt.target.closest(`.js-main-answer-r`).value;
-    checkAnswer(currentState, currentQuestion, currentAnswer);
-    controllerConditions(currentState);
+    checkAnswer(initialState.getProperty(), currentQuestion, currentAnswer);
+    controllerConditions();
   };
 
   return screenLevelArtist;

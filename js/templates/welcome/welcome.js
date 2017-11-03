@@ -1,22 +1,22 @@
 import controllerConditions from '../../controller-conditions.js';
 import WelcomeView from './welcome-view.js';
+import displayTime from '../../utils/display-time.js';
 
 /**
  * Получить приветственный экран
- * @param {object} state начальные настройки игры
  * @return {DOM-object}
  */
-const getScreenWelcome = (state) => {
-  const screenWelcome = new WelcomeView(state);
+const getScreenWelcome = () => {
+  const screenWelcome = new WelcomeView();
 
   /**
    * Показать следующий экран по нажатию на кнопку
    */
   screenWelcome.onStart = () => {
-    controllerConditions(state);
+    controllerConditions();
+    displayTime();
   };
   return screenWelcome;
 };
 
 export default getScreenWelcome;
-

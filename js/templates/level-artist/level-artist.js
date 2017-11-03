@@ -18,7 +18,8 @@ const getScreenLevelArtist = (currentQuestion) => {
    */
   screenLevelArtist.onSendAnswer = (evt) => {
     const currentAnswer = evt.target.closest(`.js-main-answer-r`).value;
-    checkAnswer(initialState.getProperty(), currentQuestion, currentAnswer);
+    // checkAnswer(initialState.getProperty(), currentQuestion, currentAnswer);
+    checkAnswer(currentQuestion, currentAnswer);
     controllerConditions();
   };
 

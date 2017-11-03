@@ -17,11 +17,11 @@ const PointsForAnswer = {
 
 class State {
   constructor(time, mistakes, level, tagOfLoss, elapsedTime) {
-    this.time = 10;
+    this.time = 300;
     this.mistakes = 0;
     this.level = 0;
     this.tagOfLoss = ``;
-    this.elapsedTime = 0;
+    this.constQuickAnswer = 0;
   }
 
   resetDefault() {
@@ -29,6 +29,7 @@ class State {
     this.mistakes = 0;
     this.level = 0;
     this.tagOfLoss = ``;
+    this.constQuickAnswer = 0;
   }
 
   getProperty() {
@@ -37,12 +38,24 @@ class State {
       mistakes: this.mistakes,
       level: this.level,
       tagOfLoss: this.tagOfLoss,
-      elapsedTime: this.elapsedTime,
+      constQuickAnswer: this.constQuickAnswer,
     };
   }
 
   increaseMistakes() {
     this.mistakes = this.mistakes + 1;
+  }
+
+  getMistakes() {
+    return this.mistakes;
+  }
+
+  increaseConstQuickAnswer() {
+    this.constQuickAnswer = this.constQuickAnswer + 1;
+  }
+
+  getConstQuickAnswer() {
+    return this.constQuickAnswer;
   }
 
   setTagOfLoss(tagOfLoss) {

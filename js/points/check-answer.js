@@ -1,12 +1,14 @@
-import {currentPlayer, initialState, testTimePlayer} from '../data/game-settings.js';
+import {PlaySettings, initialState, currentPlayer} from '../data/game-settings.js';
+
 
 /**
  * Проверить корректность ответов и записать их
- * @param {object} currentState текущее состояние игры
  * @param {object} currentQuestion текущий вопрос
  * @param {string} currentAnswer правильный ответ
  */
-const checkAnswer = (currentState, currentQuestion, currentAnswer) => {
+const checkAnswer = (currentQuestion, currentAnswer) => {
+
+  const timeAnswer = PlaySettings.GAME_TIME - initialState.getTime();
 
   /**
    * Записать результат ответа
@@ -15,7 +17,7 @@ const checkAnswer = (currentState, currentQuestion, currentAnswer) => {
   const addAnswer = (isAnswer) => {
     currentPlayer.answers.push({
       correctly: isAnswer,
-      time: testTimePlayer,
+      time: timeAnswer,
     });
   };
 

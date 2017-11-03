@@ -1,4 +1,4 @@
-import {PlaySettings, PointsForAnswer} from '../data/game-settings.js';
+import {PlaySettings, PointsForAnswer, initialState} from '../data/game-settings.js';
 
 /**
  * Подсчитываем количество очков по итогам игры
@@ -15,6 +15,7 @@ const getPoints = (playerAnswers, remainingNotes) => {
       return resultPoints - PointsForAnswer.FOR_INCORRECT; // отсеем неверные ответы
     }
     if (answer.time <= PlaySettings.ANSWER_TIME) { // выделим быстрые ответы среди верных
+      initialState.increaseConstQuickAnswer();
       return resultPoints + PointsForAnswer.FOR_QUICK;
     }
     return resultPoints + PointsForAnswer.FOR_CORRECT;

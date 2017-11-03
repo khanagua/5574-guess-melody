@@ -1,5 +1,7 @@
 import AbstractView from '../abstract-view.js';
 import getCopyright from '../copyright.js';
+import convertSecInMinutes from '../../utils/convert-sec-in-minutes.js';
+import {PlaySettings, initialState} from '../../data/game-settings.js';
 
 /**
  * Получить строку фразу-шаблон со статистикой
@@ -8,10 +10,12 @@ import getCopyright from '../copyright.js';
  * @param {object} state текущие настройки игры
  * @return {string}
  */
-const getTemplateStat = (resultPhrase, currentPlayer, state) => {
-  return `<div class="main-stat">За&nbsp;3&nbsp;минуты и 25&nbsp;секунд
-      <br>вы&nbsp;набрали ${currentPlayer.score} баллов (8 быстрых)
-      <br>совершив ${state.mistakes} ошибки</div>
+const getTemplateStat = (resultPhrase, currentPlayer) => {
+  const playTime = PlaySettings.GAME_TIME - initialState.getTime();
+  const time = convertSecInMinutes(playTime);
+  return `<div class="main-stat">За&nbsp;${time.min}&nbsp;минуты и ${time.sec}&nbsp;секунд
+      <br>вы&nbsp;набрали ${currentPlayer.score} баллов (${initialState.getConstQuickAnswer()} быстрых)
+      <br>совершив ${initialState.getMistakes()} ошибки</div>
     <span class="main-comparison">${resultPhrase}</span>`;
 };
 

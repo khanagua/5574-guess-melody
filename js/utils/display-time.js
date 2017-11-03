@@ -17,7 +17,7 @@ const displayTime = () => {
         initialState.setTime(timer.value);
       }
       if (timer.value < PlaySettings.DANGEROUS_TIME) {
-        colorTime.setAttribute('style', 'color: red;');
+        colorTime.setAttribute(`style`, `color: red;`);
       }
       if (!timer.value) {
         initialState.setTagOfLoss(`TimeOut`);
@@ -33,3 +33,5 @@ const displayTime = () => {
 };
 
 export default displayTime;
+
+

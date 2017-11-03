@@ -6,7 +6,7 @@ import ResultFail from './result-fail-view.js';
 * @param {object} state текущие настройки игры
 * @return {DOM-object}
 */
-const getScreenResultFail = (tagOfLoss, state) => {
+const getScreenResultFail = (tagOfLoss) => {
   const screenResultFail = new ResultFail(tagOfLoss);
 
   /**

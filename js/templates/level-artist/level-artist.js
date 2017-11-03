@@ -5,7 +5,6 @@ import {initialState} from '../../data/game-settings.js';
 
 /**
  * Получить шаблон экрана с угадыванием артиста
- * @param {object} currentState текущие настройки игры
  * @param {object} currentQuestion текущий вопрос
  * @return {DOM-object}
  */

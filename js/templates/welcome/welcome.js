@@ -1,6 +1,5 @@
 import controllerConditions from '../../controller-conditions.js';
 import WelcomeView from './welcome-view.js';
-import displayTime from '../../utils/display-time.js';
 
 /**
  * Получить приветственный экран
@@ -14,7 +13,6 @@ const getScreenWelcome = () => {
    */
   screenWelcome.onStart = () => {
     controllerConditions();
-    displayTime();
   };
   return screenWelcome;
 };

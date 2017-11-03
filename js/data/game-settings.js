@@ -17,7 +17,7 @@ const PointsForAnswer = {
 
 class State {
   constructor(time, mistakes, level, tagOfLoss, elapsedTime) {
-    this.time = 6;
+    this.time = 10;
     this.mistakes = 0;
     this.level = 0;
     this.tagOfLoss = ``;

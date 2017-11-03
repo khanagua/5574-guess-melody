@@ -5,6 +5,8 @@ import choiceQuestion from './utils/choice-question.js';
 import getPoints from './points/get-points.js';
 import {showPlayerResult} from './points/show-player-result';
 import getScreenResult from './templates/result/result-win.js';
+import displayTime from './utils/display-time.js';
+
 
 /**
  * Проверить условия окончания игры или перехода к следующему вопросу
@@ -27,6 +29,7 @@ const controllerConditions = () => {
   }
   if (initialState.getProperty().level < PlaySettings.COUNT_ANSWERS) { // ответил еще не на все вопросы
     choiceQuestion(initialState.getProperty());
+    displayTime();
     initialState.nextLevel();
   }
 };

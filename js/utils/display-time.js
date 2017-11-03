@@ -11,9 +11,6 @@ const displayTime = () => {
   let timer = getTimer(initialState.getTime());
   const timeout = () => {
     setTimeout(() => {
-      // const time = convertSecInMinutes(timer.value);
-      // min.innerHTML = time.min;
-      // sec.innerHTML = time.sec;
       timer = timer.tick();
       if (timer) {
         timeout();

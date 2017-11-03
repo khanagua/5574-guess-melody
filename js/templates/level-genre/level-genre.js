@@ -13,7 +13,6 @@ const getScreenLevelGenre = (currentQuestion) => {
   screenLevelGenre.onSendAnswer = (evt, answersCheckedInputs) => {
     evt.preventDefault();
     const currentAnswer = answersCheckedInputs.map((checkedInput) => checkedInput.value);
-    // checkAnswer(initialState.getProperty(), currentQuestion, currentAnswer);
     checkAnswer(currentQuestion, currentAnswer);
     controllerConditions();
   };

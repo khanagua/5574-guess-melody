@@ -13,13 +13,14 @@ import displayTime from './utils/display-time.js';
  * @param {object} state начальные настройки игры
  */
 const controllerConditions = () => {
+  const currentLevel = initialState.getProperty().level;
   if (initialState.getProperty().mistakes === PlaySettings.COUNT_MISTAKES + 1) { // Закончились жизни
     initialState.getProperty().tagOfLoss = `AttemptOut`;
     openScreen(getScreenResultFail(initialState.getProperty().tagOfLoss, initialState.getProperty()));
     initialState.resetDefault();
     return;
   }
-  if (initialState.getProperty().level === PlaySettings.COUNT_ANSWERS) { // ответил на все вопросы
+  if (currentLevel === PlaySettings.COUNT_ANSWERS) { // ответил на все вопросы
     const playerAnswers = currentPlayer.answers;
     const remainingNotes = currentPlayer.remainingNotes - initialState.getProperty().mistakes;
     currentPlayer.score = getPoints(playerAnswers, remainingNotes);
@@ -27,7 +28,7 @@ const controllerConditions = () => {
     openScreen(getScreenResult(resultPhrase, currentPlayer));
     return;
   }
-  if (initialState.getProperty().level < PlaySettings.COUNT_ANSWERS) { // ответил еще не на все вопросы
+  if (currentLevel < PlaySettings.COUNT_ANSWERS) { // ответил еще не на все вопросы
     choiceQuestion(initialState.getProperty());
     displayTime();
     initialState.nextLevel();

@@ -1,4 +1,5 @@
 import ResultWin from './result-win-view.js';
+import {initialState} from '../../data/game-settings.js';
 
 /**
  * Получить шаблон экрана результата
@@ -7,8 +8,8 @@ import ResultWin from './result-win-view.js';
  * @param {object} state текущие настройки игры
  * @return {DOM-object}
  */
-const getScreenResult = (resultPhrase, currentPlayer, state) => {
-  const screenResultWin = new ResultWin(resultPhrase, currentPlayer, state);
+const getScreenResult = (resultPhrase, currentPlayer) => {
+  const screenResultWin = new ResultWin(resultPhrase, currentPlayer, initialState.getProperty());
 
   /**
    * Отследить нажатие на ссылку возврата к началу игры

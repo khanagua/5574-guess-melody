@@ -15,31 +15,66 @@ const PointsForAnswer = {
   FOR_INCORRECT: 2,
 };
 
-const initialState = {
-  time: 300,
-  mistakes: 0,
-  level: 0,
-  tagOfLoss: ``,
-  elapsedTime: 0,
+class State {
+  constructor(time, mistakes, level, tagOfLoss, elapsedTime) {
+    this.time = 6;
+    this.mistakes = 0;
+    this.level = 0;
+    this.tagOfLoss = ``;
+    this.elapsedTime = 0;
+  }
+
   resetDefault() {
     this.time = PlaySettings.GAME_TIME;
     this.mistakes = 0;
     this.level = 0;
     this.tagOfLoss = ``;
   }
-};
+
+  getProperty() {
+    return {
+      time: this.time,
+      mistakes: this.mistakes,
+      level: this.level,
+      tagOfLoss: this.tagOfLoss,
+      elapsedTime: this.elapsedTime,
+    };
+  }
+
+  increaseMistakes() {
+    this.mistakes = this.mistakes + 1;
+  }
+
+  setTagOfLoss(tagOfLoss) {
+    this.tagOfLoss = tagOfLoss;
+  }
+
+  getTime() {
+    return this.time;
+  }
+
+  setTime(time) {
+    this.time = time;
+  }
+
+  nextLevel() {
+    this.level++;
+  }
+}
+
+const initialState = new State();
 
 const currentPlayer = {
   score: 0,
-  remainingTime: initialState.time,
-  spentTime: PlaySettings.GAME_TIME - initialState.time,
+  remainingTime: initialState.getProperty().time,
+  spentTime: PlaySettings.GAME_TIME - initialState.getProperty().time,
   remainingNotes: 3,
   answers: [],
   resetToDefault() {
     this.score = 0;
-    this.remainingTime = initialState.time;
-    this.spentTime = PlaySettings.GAME_TIME - initialState.time;
-    this.remainingNotes = PlaySettings.COUNT_MISTAKES - initialState.mistakes;
+    this.remainingTime = initialState.getProperty().time;
+    this.spentTime = PlaySettings.GAME_TIME - initialState.getProperty().time;
+    this.remainingNotes = PlaySettings.COUNT_MISTAKES - initialState.getProperty().time;
     this.answers = [];
   }
 };
@@ -48,4 +83,3 @@ const testResultsPlayers = [0, 7, 10, 12, 13, 14, 20];
 const testTimePlayer = 35;
 
 export {PlaySettings, PointsForAnswer, initialState, currentPlayer, testResultsPlayers, testTimePlayer};
-
